@@ -15,3 +15,5 @@
 - .gitignore
 -create a remote repo on github
 -Push all code to remote origin
+-Play with routes and route extensions ex. /hello /hello2
+-Order of the routes matter a lot
