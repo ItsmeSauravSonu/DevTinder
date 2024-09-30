@@ -24,3 +24,7 @@
 -Use of regex in routes /a/, /.*fly$/
 -Reading the query params in routes
 -Reading the dynamic routes
+
+-Multiple route Handlers- Play with the code
+-next()
+-next() function and errors along with res.send()
