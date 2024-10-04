@@ -34,5 +34,5 @@
 -Difference app.use() and app.all()
 -Write a dummy auth middleware for admin
 -Write a dummy auth middleware for all user routes, except /user/login
-1:23
+-Error Handling using app.use("/", (err, req, res, next)=>{})
 
