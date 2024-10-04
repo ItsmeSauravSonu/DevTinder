@@ -5,14 +5,16 @@ const app = express();
 app.use(
   "/user",
   (req, res,next) => {
-    console.log("Handling the route user!!")
-    
+    //Route Handler
+    //res.send("Route Handler 1");
+    console.log("Handling the route user!!");
+    //res.send("Response!");
     next();
-    res.send("Response!!!1")
   },
   (req, res) => {
-    console.log("2nd Response.........")
-    res.send("2nd Response");
+    //Route Handler 2
+    console.log("Handling the route user2!!");
+    res.send("2nd Response!");
   }
 );
 
