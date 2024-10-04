@@ -8,8 +8,9 @@ app.use(
     //Route Handler
     //res.send("Route Handler 1");
     console.log("Handling the route user!!");
-    //res.send("Response!");
+    
     next();
+    res.send("Response!");
   },
   (req, res) => {
     //Route Handler 2
