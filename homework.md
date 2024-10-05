@@ -47,3 +47,7 @@
 - Push some documents using api calls from postman
 - Error handling using try, catch
 
+- JS object vs JSON (difference)
+- Add the express.json middleware to the app
+- Make your signup api dynamic to receive data from the end user
+

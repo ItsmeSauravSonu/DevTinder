@@ -2,39 +2,30 @@ const express = require("express");
 const connectDB = require("./config/database");
 
 const app = express();
-const User = require("./models/user")
+const User = require("./models/user");
 
-app.post("/signup", async (req, res)=>{
+app.use(express.json());
 
-  const userObj = {
-    firstName: "Gaurav",
-    lastName: "Kumar",
-    emailId: "gaurav@gmail.com",
-    password: "gaurav@125",
-  };
-
+app.post("/signup", async (req, res) => {
   //creating a new instance of a User model
-  const user = new User(userObj);
+  const user = new User(req.body);
 
-  try{
+  try {
     await user.save();
     res.send("User Added Successfully");
-  }catch(err){
+  } catch (err) {
     res.status(400).send("Error saving the user:" + err.message);
   }
-  
+});
 
-})
+connectDB()
+  .then(() => {
+    console.log("Database connection established.....");
 
-connectDB().then(()=>{
-  console.log("Database connection established.....");
-
-  app.listen(7777, () => {
-    console.log("Server is succesfully listening on port 7777....");
+    app.listen(7777, () => {
+      console.log("Server is succesfully listening on port 7777....");
+    });
+  })
+  .catch((err) => {
+    console.error("Database cannot be connected");
   });
-
-}).catch(err=>{
-  console.error("Database cannot be connected");
-})
-
-
