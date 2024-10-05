@@ -1,27 +1,17 @@
 const express = require("express");
-const {adminAuth, userAuth} = require("./middlewares/auth")
+const connectDB = require("./config/database");
+
 const app = express();
 
+connectDB().then(()=>{
+  console.log("Database connection established.....");
 
-app.get("/getUserData",(req, res)=>{
+  app.listen(7777, () => {
+    console.log("Server is succesfully listening on port 7777....");
+  });
 
-  try{
-    throw new Error("ddhdhdhdh")
-    res.send("User Data sent");
-  }
-  catch(err){
-    res.status(500).send("Some error contact support")
-  }
-  
+}).catch(err=>{
+  console.error("Database cannot be connected");
 })
 
-app.use("/", (err, req, res, next)=>{
-  if(err){
-    //Log your error 
-    res.status(500).send("Something went wrong")
-  }
-})
 
-app.listen(3000, () => {
-  console.log("Server is succesfully listening on port 3000....");
-});
